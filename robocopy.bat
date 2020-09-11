@@ -1,0 +1,1 @@
+robocopy  /S /COPY:DAT /LOG:"D:\bk\log.log" "R:\" "D:\bk"
