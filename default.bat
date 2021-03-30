@@ -1,1 +1,1 @@
-robocopy  /S /COPY:DAT /LOG:"D:\bk\log.log" "D:\" "G:\マイドライブ\bk"
+robocopy  /S /COPY:DAT /LOG:"D:\bk\log.log" "D:\" "Z:\D"
