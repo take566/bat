@@ -12,7 +12,7 @@ set mn=%time2:~3,2%
 set ss=%time2:~6,2%
  
 set filename=%yyyy%-%mm%%dd%-%hh%%mn%%ss%
-cd C:\work
+cd C:\work\log
 
 chocolatey upgrade all -y
 
