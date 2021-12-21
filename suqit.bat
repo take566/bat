@@ -1,4 +1,4 @@
-pushd d:
-cd .\Squid\
-cd .\bin\
+pushd c:
+cd C:\Squid\bin
+
 .\squid.exe -z
