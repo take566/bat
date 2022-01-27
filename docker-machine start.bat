@@ -19,7 +19,7 @@ SET LOG=C:\work\log\docker_%filename%.txt
 
 docker-machine rm default -y >> %LOG%
 
-
+docker-machine stop　>> %LOG%
 docker-machine create --virtualbox-no-vtx-check -d virtualbox default >> %LOG%
 docker-machine start default >> %LOG%
 docker-machine env default >> %LOG%
