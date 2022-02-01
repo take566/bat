@@ -1,19 +1,20 @@
 echo %date%
 echo %time%
  
-set yyyy=%date:~0,4%
-set mm=%date:~5,2%
-set dd=%date:~8,2%
+SET yyyy=%date:~0,4%
+SET mm=%date:~5,2%
+SET dd=%date:~8,2%
  
-set time2=%time: =0%
+SET time2=%time: =0%
  
-set hh=%time2:~0,2%
-set mn=%time2:~3,2%
-set ss=%time2:~6,2%
+SET hh=%time2:~0,2%
+SET mn=%time2:~3,2%
+SET ss=%time2:~6,2%
  
-set filename=%yyyy%-%mm%%dd%-%hh%%mn%%ss%
-cd C:\work\log
+SET filename=%yyyy%-%mm%%dd%-%hh%%mn%%ss%
 
-chocolatey upgrade all -y
+SET LOG=C:\work\log\clist_%filename%.txt
 
- choco list -localonly>> clist_%filename%.txt
+chocolatey upgrade all -y >> %LOG%
+
+choco list -localonly >> %LOG%
