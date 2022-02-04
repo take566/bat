@@ -18,4 +18,4 @@ cd /d C:\work\kubernetes  >> %LOG%
 
 minikube stop >> %LOG%
 minikube delete >> %LOG%
-minikube --vm-driver=virtualbox --driver=docker start  --cpus 4 --memory 8192 >> %LOG%
+minikube  --vm-driver=none  start  --cpus 4 --memory 8192 >> %LOG%
