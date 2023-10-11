@@ -15,6 +15,6 @@ SET filename=%yyyy%-%mm%%dd%-%hh%%mn%%ss%
 
 SET LOG=C:\work\log\clist_%filename%.txt
 
-chocolatey upgrade all -y >> %LOG%
+choco upgrade all -y >> %LOG%
 
 choco list -localonly >> %LOG%
