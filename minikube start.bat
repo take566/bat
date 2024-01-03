@@ -18,4 +18,5 @@ cd /d C:\work\kubernetes  >> %LOG%
 
 minikube stop >> %LOG%
 minikube delete >> %LOG%
-minikube start  --cpus 4 --memory 8192 >> %LOG%
+minikube config set driver docker >> %LOG%
+minikube start  --cpus 4 --memory 8192 --driver=docker >> %LOG%
