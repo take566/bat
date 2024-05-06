@@ -107,8 +107,6 @@ choco install curl
 choco install dbeaver
 choco install docker-cli
 choco install docker-desktop
-choco install docker-machine
-choco install docker-toolbox
 choco install DotNet4.5.2
 choco install dotnet4.7.1
 choco install dotnetfx
