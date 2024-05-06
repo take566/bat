@@ -53,8 +53,6 @@ choco install curl
 choco install dbeaver
 choco install docker-cli
 choco install docker-desktop
-choco install docker-machine
-choco install docker-toolbox
 choco install DotNet4.5.2
 choco install dotnet4.7.1
 choco install dotnetfx
@@ -123,7 +121,6 @@ choco install google-drive-file-stream
 choco install GoogleChrome
 choco install googledrive
 choco install iTunes
-choco install 
 choco install KB2919355
 choco install KB2919442
 choco install KB2999226
@@ -165,8 +162,6 @@ choco install curl
 choco install dbeaver
 choco install docker-cli
 choco install docker-desktop
-choco install docker-machine
-choco install docker-toolbox
 choco install DotNet4.5.2
 choco install dotnet4.7.1
 choco install dotnetfx
@@ -179,7 +174,6 @@ choco install google-drive-file-stream
 choco install GoogleChrome
 choco install googledrive
 choco install iTunes
-choco install 
 choco install KB2919355
 choco install KB2919442
 choco install KB2999226
