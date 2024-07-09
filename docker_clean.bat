@@ -16,3 +16,4 @@ SET LOG=C:\work\log\docker_clean_%filename%.txt
 docker system prune -y >> %LOG%
 docker-machine rm default -y >> %LOG%
 docker rmi $(docker images -a -q) >> %LOG%
+docker rm $(docker ps -aq) >> %LOG%
