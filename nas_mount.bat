@@ -1,4 +1,4 @@
-
+@echo off
 net use J: /DELETE /y
 net use X: /DELETE /y
 net use Y: /DELETE /y
