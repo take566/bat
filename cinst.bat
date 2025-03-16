@@ -1,66 +1,66 @@
-choco install 1password8
-choco install 7zip.install
-choco install adobereader
-choco install autohotkey.portable
-choco install brave
-choco install chocolatey
-choco install chocolatey-compatibility.extension
-choco install chocolatey-core.extension
-choco install chocolatey-dotnetfx.extension
-choco install chocolatey-windowsupdate.extension
-choco install curl
-choco install dbeaver
-choco install docker-desktop
-choco install DotNet4.5
-choco install DotNet4.5.2
-choco install dotnet4.7.1
-choco install dotnet4.7.2
-choco install dotnetfx
-choco install Everything
-choco install filezilla
-choco install Firefox
-choco install git
-choco install git.install
-choco install GoogleChrome
-choco install google-chrome-x64
-choco install googledrive
-choco install google-drive-file-stream
-choco install GoogleJapaneseInput
-choco install iTunes
-choco install kubernetes-cli
-choco install kubernetes-helm
-choco install lhaplus
-choco install miniconda3
-choco install Minikube
-choco install netfx-4.7.2
-choco install nodejs
-choco install nodejs.install
-choco install nvm
-choco install nvm.install
-choco install openssh
-choco install packer
-choco install PowerShell
-choco install pyenv-win
-choco install python
-choco install python3
-choco install python312
-choco install python313
-choco install sakuraeditor
-choco install slack
-choco install sourcetree
-choco install squid
-choco install steam
-choco install teracopy
-choco install teraterm
-choco install vcredist140
-choco install vcredist2015
-choco install virtualbox
-choco install vlc
-choco install vlc.install
-choco install vmware-powercli-psmodule
-choco install vscode
-choco install vscode.install
-choco install winmerge
-choco install winscp
-choco install winscp.install
-choco install zoom
+choco install 1password8 -y
+choco install 7zip.install -y
+choco install adobereader -y
+choco install autohotkey.portable -y
+choco install brave -y
+choco install chocolatey -y
+choco install chocolatey-compatibility.extension -y
+choco install chocolatey-core.extension -y
+choco install chocolatey-dotnetfx.extension -y
+choco install chocolatey-windowsupdate.extension -y
+choco install curl -y
+choco install dbeaver -y
+choco install docker-desktop -y
+choco install DotNet4.5 -y
+choco install DotNet4.5.2 -y
+choco install dotnet4.7.1 -y
+choco install dotnet4.7.2 -y
+choco install dotnetfx -y
+choco install Everything -y
+choco install filezilla -y
+choco install Firefox -y
+choco install git -y
+choco install git.install -y
+choco install GoogleChrome -y
+choco install google-chrome-x64 -y
+choco install googledrive -y
+choco install google-drive-file-stream -y
+choco install GoogleJapaneseInput -y
+choco install iTunes -y
+choco install kubernetes-cli -y
+choco install kubernetes-helm -y
+choco install lhaplus -y
+choco install miniconda3 -y
+choco install Minikube -y
+choco install netfx-4.7.2 -y
+choco install nodejs -y
+choco install nodejs.install -y
+choco install nvm -y
+choco install nvm.install -y
+choco install openssh -y
+choco install packer -y
+choco install PowerShell -y
+choco install pyenv-win -y
+choco install python -y
+choco install python3 -y
+choco install python312 -y
+choco install python313 -y
+choco install sakuraeditor -y
+choco install slack -y
+choco install sourcetree -y
+choco install squid -y
+choco install steam -y
+choco install teracopy -y
+choco install teraterm -y
+choco install vcredist140 -y
+choco install vcredist2015 -y
+choco install virtualbox -y
+choco install vlc -y
+choco install vlc.install -y
+choco install vmware-powercli-psmodule -y
+choco install vscode -y
+choco install vscode.install -y
+choco install winmerge -y
+choco install winscp -y
+choco install winscp.install -y
+choco install zoom -y
