@@ -13,6 +13,11 @@ SET ss=%time2:~6,2%
 
 SET filename=%yyyy%-%mm%%dd%-%hh%%mn%%ss%
 SET LOG=C:\work\log\teams_%filename%.txt
+REM Check if the log directory exists, create it if it doesn't
+IF NOT EXIST "%LOG_DIR%" (
+    MKDIR "%LOG_DIR%"
+    echo Created log directory: %LOG_DIR%
+)
 
 dir %appdata%\Microsoft\Teams >> %LOG%
 del /f %appdata%\Microsoft\Teams >> %LOG%
