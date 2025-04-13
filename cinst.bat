@@ -1,89 +1,118 @@
-echo %date%
-echo %time%
+@echo off
+setlocal enabledelayedexpansion
 
+echo ===================================================
+echo Chocolateyパッケージ自動インストールツール
+echo ===================================================
+echo 日付: %date%
+echo 時刻: %time%
+echo.
+
+REM 日時情報の取得
 SET yyyy=%date:~0,4%
 SET mm=%date:~5,2%
 SET dd=%date:~8,2%
-
 SET time2=%time: =0%
-
 SET hh=%time2:~0,2%
 SET mn=%time2:~3,2%
 SET ss=%time2:~6,2%
-
 SET filename=%yyyy%-%mm%%dd%-%hh%%mn%%ss%
 
+REM ログディレクトリの設定
 SET LOG_DIR=C:\work\log
 SET LOG=%LOG_DIR%\cinst_%filename%.txt
+SET TEMP_FILE=%TEMP%\packages_to_install.txt
 
-REM Check if the log directory exists, create it if it doesn't
+REM ログディレクトリの存在確認、なければ作成
 IF NOT EXIST "%LOG_DIR%" (
     MKDIR "%LOG_DIR%"
-    echo Created log directory: %LOG_DIR%
+    echo ログディレクトリを作成しました: %LOG_DIR%
 )
-choco install 1password8 -y
-choco install 7zip.install -y
-choco install adobereader -y
-choco install autohotkey.portable -y
-choco install brave -y
-choco install chocolatey -y
-choco install chocolatey-compatibility.extension -y
-choco install chocolatey-core.extension -y
-choco install chocolatey-dotnetfx.extension -y
-choco install chocolatey-windowsupdate.extension -y
-choco install curl -y
-choco install dbeaver -y
-choco install docker-desktop -y
-choco install DotNet4.5 -y
-choco install DotNet4.5.2 -y
-choco install dotnet4.7.1 -y
-choco install dotnet4.7.2 -y
-choco install dotnetfx -y
-choco install Everything -y
-choco install filezilla -y
-choco install Firefox -y
-choco install git -y
-choco install git.install -y
-choco install GoogleChrome -y
-choco install google-chrome-x64 -y
-choco install googledrive -y
-choco install google-drive-file-stream -y
-choco install GoogleJapaneseInput -y
-choco install iTunes -y
-choco install kubernetes-cli -y
-choco install kubernetes-helm -y
-choco install lhaplus -y
-choco install miniconda3 -y
-choco install Minikube -y
-choco install netfx-4.7.2 -y
-choco install nodejs -y
-choco install nodejs.install -y
-choco install nvm -y
-choco install nvm.install -y
-choco install openssh -y
-choco install packer -y
-choco install PowerShell -y
-choco install pyenv-win -y
-choco install python -y
-choco install python3 -y
-choco install python312 -y
-choco install python313 -y
-choco install sakuraeditor -y
-choco install slack -y
-choco install sourcetree -y
-choco install squid -y
-choco install steam -y
-choco install teracopy -y
-choco install teraterm -y
-choco install vcredist140 -y
-choco install vcredist2015 -y
-choco install virtualbox -y
-choco install vlc -y
-choco install vlc.install -y
-choco install vmware-powercli-psmodule -y
-choco install vscode -y
-choco install vscode.install -y
-choco install winmerge -y
-choco install winscp -y
-choco install winscp.install -y
-choco install zoom -y
+
+REM パッケージリストファイルの存在確認
+SET PACKAGE_LIST=packages.txt
+IF NOT EXIST "%PACKAGE_LIST%" (
+    echo エラー: パッケージリストファイル（%PACKAGE_LIST%）が見つかりません。
+    echo 同じディレクトリに %PACKAGE_LIST% ファイルを作成してください。
+    echo 処理を中止します。
+    goto :EOF
+)
+
+echo ログファイル: %LOG%
+echo パッケージリスト: %PACKAGE_LIST%
+echo.
+
+REM 一時ファイルの初期化
+if exist "%TEMP_FILE%" del "%TEMP_FILE%"
+
+REM パッケージリストの読み込みとフィルタリング
+echo パッケージリストを読み込んでいます...
+set count=0
+for /F "usebackq tokens=* eol=# delims=" %%A in ("%PACKAGE_LIST%") do (
+    set line=%%A
+    if not "!line!"=="" (
+        echo !line!>>"%TEMP_FILE%"
+        set /a count+=1
+    )
+)
+
+echo インストール対象パッケージ数: !count!
+echo.
+
+REM パッケージが見つからない場合
+if !count! EQU 0 (
+    echo 警告: インストール対象のパッケージが見つかりません。
+    echo %PACKAGE_LIST% ファイルを確認してください。
+    echo 処理を中止します。
+    goto :EOF
+)
+
+REM インストール開始
+echo ===================================================
+echo Chocolateyパッケージのインストールを開始します...
+echo ===================================================
+echo.
+
+REM ログファイルのヘッダー
+echo ===== Chocolateyパッケージインストールログ ===== > "%LOG%"
+echo 日時: %date% %time% >> "%LOG%"
+echo パッケージリスト: %PACKAGE_LIST% >> "%LOG%"
+echo インストール対象パッケージ数: !count! >> "%LOG%"
+echo. >> "%LOG%"
+
+REM 一括インストールコマンドの構築
+set packages=
+for /F "usebackq tokens=*" %%A in ("%TEMP_FILE%") do (
+    set packages=!packages! %%A
+)
+
+REM インストールの実行
+echo インストールするパッケージ:!packages!
+echo.
+echo インストールを開始します...この処理には時間がかかる場合があります。
+echo.
+
+echo choco install!packages! -y >> "%LOG%"
+choco install!packages! -y >> "%LOG%" 2>&1
+
+REM 結果の確認
+IF %ERRORLEVEL% NEQ 0 (
+    echo.
+    echo 警告: 一部のパッケージのインストールに失敗した可能性があります。
+    echo ログファイル（%LOG%）を確認してください。
+) ELSE (
+    echo.
+    echo すべてのパッケージが正常にインストールされました。
+)
+
+REM 一時ファイルの削除
+if exist "%TEMP_FILE%" del "%TEMP_FILE%"
+
+echo.
+echo ===================================================
+echo インストール処理が完了しました。
+echo ログファイル: %LOG%
+echo ===================================================
+echo.
+echo 何かキーを押すと終了します...
+pause > nul

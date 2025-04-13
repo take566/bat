@@ -1,0 +1,85 @@
+# Chocolateyパッケージリスト
+# 行の先頭に # を付けるとそのパッケージはスキップされます
+# 各行に1つのパッケージ名を記述してください
+
+# ブラウザ
+brave
+Firefox
+GoogleChrome
+google-chrome-x64
+
+# 開発ツール
+git
+git.install
+vscode
+vscode.install
+nodejs
+nodejs.install
+nvm
+nvm.install
+python
+python3
+python312
+python313
+pyenv-win
+
+# Docker & Kubernetes
+docker-desktop
+kubernetes-cli
+kubernetes-helm
+Minikube
+
+# .NET関連
+DotNet4.5
+DotNet4.5.2
+dotnet4.7.1
+dotnet4.7.2
+dotnetfx
+netfx-4.7.2
+
+# ユーティリティ
+7zip.install
+adobereader
+autohotkey.portable
+curl
+Everything
+filezilla
+lhaplus
+openssh
+PowerShell
+sakuraeditor
+teracopy
+teraterm
+winmerge
+winscp
+winscp.install
+
+# アプリケーション
+1password8
+dbeaver
+GoogleJapaneseInput
+iTunes
+slack
+sourcetree
+squid
+steam
+virtualbox
+vlc
+vlc.install
+zoom
+
+# Google関連
+googledrive
+google-drive-file-stream
+
+# Chocolatey関連
+chocolatey
+chocolatey-compatibility.extension
+chocolatey-core.extension
+chocolatey-dotnetfx.extension
+chocolatey-windowsupdate.extension
+
+# その他
+miniconda3
+packer
+vmware-powercli-psmodule
