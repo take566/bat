@@ -27,6 +27,6 @@ net use Z: /DELETE /y
 
 REM 資格情報を使用してネットワークドライブをマウント
 net use X: \\AS4002T-A6F7\Music /user:admin /savecred
-net use Y: \\AS4002T-A6F7\Media 
-net use Z: \\AS4002T-A6F7\Home
-net use J: \\AS4002T-A6F7\Docker
+net use Y: \\AS4002T-A6F7\Media /user:admin /savecred
+net use Z: \\AS4002T-A6F7\Home /user:admin /savecred
+net use J: \\AS4002T-A6F7\Docker /user:admin /savecred
