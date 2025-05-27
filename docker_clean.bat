@@ -1,4 +1,5 @@
 @echo off
+chcp 65001 > nul
 echo Docker クリーンアップを開始します...
 echo 日付: %date%
 echo 時刻: %time%

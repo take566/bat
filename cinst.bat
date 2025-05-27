@@ -1,14 +1,15 @@
 @echo off
+chcp 65001 > nul
 setlocal enabledelayedexpansion
 
 echo ===================================================
-echo ChocolateyƒpƒbƒP[ƒWŽ©“®ƒCƒ“ƒXƒg[ƒ‹ƒc[ƒ‹
+echo Chocolateyãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ä¸€æ‹¬ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ãƒ„ãƒ¼ãƒ«
 echo ===================================================
-echo “ú•t: %date%
-echo Žž: %time%
+echo æ—¥ä»˜: %date%
+echo æ™‚åˆ»: %time%
 echo.
 
-REM “úŽžî•ñ‚ÌŽæ“¾
+REM ç¾åœ¨æ™‚åˆ»ã®å–å¾—
 SET yyyy=%date:~0,4%
 SET mm=%date:~5,2%
 SET dd=%date:~8,2%
@@ -18,35 +19,35 @@ SET mn=%time2:~3,2%
 SET ss=%time2:~6,2%
 SET filename=%yyyy%-%mm%%dd%-%hh%%mn%%ss%
 
-REM ƒƒOƒfƒBƒŒƒNƒgƒŠ‚ÌÝ’è
+REM ãƒ­ã‚°ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®è¨­å®š
 SET LOG_DIR=C:\work\log
 SET LOG=%LOG_DIR%\cinst_%filename%.txt
 SET TEMP_FILE=%TEMP%\packages_to_install.txt
 
-REM ƒƒOƒfƒBƒŒƒNƒgƒŠ‚Ì‘¶ÝŠm”FA‚È‚¯‚ê‚Îì¬
+REM ãƒ­ã‚°ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®å­˜åœ¨ç¢ºèªã€ãªã‘ã‚Œã°ä½œæˆ
 IF NOT EXIST "%LOG_DIR%" (
     MKDIR "%LOG_DIR%"
-    echo ƒƒOƒfƒBƒŒƒNƒgƒŠ‚ðì¬‚µ‚Ü‚µ‚½: %LOG_DIR%
+    echo ãƒ­ã‚°ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ä½œæˆã—ã¾ã—ãŸ: %LOG_DIR%
 )
 
-REM ƒpƒbƒP[ƒWƒŠƒXƒgƒtƒ@ƒCƒ‹‚Ì‘¶ÝŠm”F
+REM ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ãƒªã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã®å­˜åœ¨ç¢ºèª
 SET PACKAGE_LIST=packages.txt
 IF NOT EXIST "%PACKAGE_LIST%" (
-    echo ƒGƒ‰[: ƒpƒbƒP[ƒWƒŠƒXƒgƒtƒ@ƒCƒ‹i%PACKAGE_LIST%j‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñB
-    echo “¯‚¶ƒfƒBƒŒƒNƒgƒŠ‚É %PACKAGE_LIST% ƒtƒ@ƒCƒ‹‚ðì¬‚µ‚Ä‚­‚¾‚³‚¢B
-    echo ˆ—‚ð’†Ž~‚µ‚Ü‚·B
+    echo ã‚¨ãƒ©ãƒ¼: ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ãƒªã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ï¼ˆ%PACKAGE_LIST%ï¼‰ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã€‚
+    echo ç¾åœ¨ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã« %PACKAGE_LIST% ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆã—ã¦ãã ã•ã„ã€‚
+    echo å‡¦ç†ã‚’ä¸­æ­¢ã—ã¾ã™ã€‚
     goto :EOF
 )
 
-echo ƒƒOƒtƒ@ƒCƒ‹: %LOG%
-echo ƒpƒbƒP[ƒWƒŠƒXƒg: %PACKAGE_LIST%
+echo ãƒ­ã‚°ãƒ•ã‚¡ã‚¤ãƒ«: %LOG%
+echo ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ãƒªã‚¹ãƒˆ: %PACKAGE_LIST%
 echo.
 
-REM ˆêŽžƒtƒ@ƒCƒ‹‚Ì‰Šú‰»
+REM ä¸€æ™‚ãƒ•ã‚¡ã‚¤ãƒ«ã®åˆæœŸåŒ–
 if exist "%TEMP_FILE%" del "%TEMP_FILE%"
 
-REM ƒpƒbƒP[ƒWƒŠƒXƒg‚Ì“Ç‚Ýž‚Ý‚ÆƒtƒBƒ‹ƒ^ƒŠƒ“ƒO
-echo ƒpƒbƒP[ƒWƒŠƒXƒg‚ð“Ç‚Ýž‚ñ‚Å‚¢‚Ü‚·...
+REM ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ãƒªã‚¹ãƒˆã®èª­ã¿è¾¼ã¿ã¨ãƒ•ã‚£ãƒ«ã‚¿ãƒªãƒ³ã‚°
+echo ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ãƒªã‚¹ãƒˆã‚’èª­ã¿è¾¼ã‚“ã§ã„ã¾ã™...
 set count=0
 for /F "usebackq tokens=* eol=# delims=" %%A in ("%PACKAGE_LIST%") do (
     set line=%%A
@@ -56,63 +57,63 @@ for /F "usebackq tokens=* eol=# delims=" %%A in ("%PACKAGE_LIST%") do (
     )
 )
 
-echo ƒCƒ“ƒXƒg[ƒ‹‘ÎÛƒpƒbƒP[ƒW”: !count!
+echo ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«å¯¾è±¡ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸æ•°: !count!
 echo.
 
-REM ƒpƒbƒP[ƒW‚ªŒ©‚Â‚©‚ç‚È‚¢ê‡
+REM ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ãŒè¦‹ã¤ã‹ã‚‰ãªã„å ´åˆ
 if !count! EQU 0 (
-    echo Œx: ƒCƒ“ƒXƒg[ƒ‹‘ÎÛ‚ÌƒpƒbƒP[ƒW‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñB
-    echo %PACKAGE_LIST% ƒtƒ@ƒCƒ‹‚ðŠm”F‚µ‚Ä‚­‚¾‚³‚¢B
-    echo ˆ—‚ð’†Ž~‚µ‚Ü‚·B
+    echo è­¦å‘Š: ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«å¯¾è±¡ã®ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã€‚
+    echo %PACKAGE_LIST% ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€‚
+    echo å‡¦ç†ã‚’ä¸­æ­¢ã—ã¾ã™ã€‚
     goto :EOF
 )
 
-REM ƒCƒ“ƒXƒg[ƒ‹ŠJŽn
+REM ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«é–‹å§‹
 echo ===================================================
-echo ChocolateyƒpƒbƒP[ƒW‚ÌƒCƒ“ƒXƒg[ƒ‹‚ðŠJŽn‚µ‚Ü‚·...
+echo Chocolateyãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã®ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã‚’é–‹å§‹ã—ã¾ã™...
 echo ===================================================
 echo.
 
-REM ƒƒOƒtƒ@ƒCƒ‹‚Ìƒwƒbƒ_[
-echo ===== ChocolateyƒpƒbƒP[ƒWƒCƒ“ƒXƒg[ƒ‹ƒƒO ===== > "%LOG%"
-echo “úŽž: %date% %time% >> "%LOG%"
-echo ƒpƒbƒP[ƒWƒŠƒXƒg: %PACKAGE_LIST% >> "%LOG%"
-echo ƒCƒ“ƒXƒg[ƒ‹‘ÎÛƒpƒbƒP[ƒW”: !count! >> "%LOG%"
+REM ãƒ­ã‚°ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ˜ãƒƒãƒ€ãƒ¼
+echo ===== Chocolateyãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ãƒ­ã‚° ===== > "%LOG%"
+echo é–‹å§‹: %date% %time% >> "%LOG%"
+echo ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ãƒªã‚¹ãƒˆ: %PACKAGE_LIST% >> "%LOG%"
+echo ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«å¯¾è±¡ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸æ•°: !count! >> "%LOG%"
 echo. >> "%LOG%"
 
-REM ˆêŠ‡ƒCƒ“ƒXƒg[ƒ‹ƒRƒ}ƒ“ƒh‚Ì\’z
+REM ä¸€æ‹¬ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã‚³ãƒžãƒ³ãƒ‰ã®æ§‹ç¯‰
 set packages=
 for /F "usebackq tokens=*" %%A in ("%TEMP_FILE%") do (
     set packages=!packages! %%A
 )
 
-REM ƒCƒ“ƒXƒg[ƒ‹‚ÌŽÀs
-echo ƒCƒ“ƒXƒg[ƒ‹‚·‚éƒpƒbƒP[ƒW:!packages!
+REM ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã®å®Ÿè¡Œ
+echo ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã™ã‚‹ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸:!packages!
 echo.
-echo ƒCƒ“ƒXƒg[ƒ‹‚ðŠJŽn‚µ‚Ü‚·...‚±‚Ìˆ—‚É‚ÍŽžŠÔ‚ª‚©‚©‚éê‡‚ª‚ ‚è‚Ü‚·B
+echo ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã‚’é–‹å§‹ã—ã¾ã™...ã“ã®å‡¦ç†ã«ã¯æ™‚é–“ãŒã‹ã‹ã‚‹å ´åˆãŒã‚ã‚Šã¾ã™ã€‚
 echo.
 
 echo choco install!packages! -y >> "%LOG%"
 choco install!packages! -y >> "%LOG%" 2>&1
 
-REM Œ‹‰Ê‚ÌŠm”F
+REM çµæžœã®ç¢ºèª
 IF %ERRORLEVEL% NEQ 0 (
     echo.
-    echo Œx: ˆê•”‚ÌƒpƒbƒP[ƒW‚ÌƒCƒ“ƒXƒg[ƒ‹‚ÉŽ¸”s‚µ‚½‰Â”\«‚ª‚ ‚è‚Ü‚·B
-    echo ƒƒOƒtƒ@ƒCƒ‹i%LOG%j‚ðŠm”F‚µ‚Ä‚­‚¾‚³‚¢B
+    echo è­¦å‘Š: ä¸€éƒ¨ã®ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã®ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã«å¤±æ•—ã—ãŸå¯èƒ½æ€§ãŒã‚ã‚Šã¾ã™ã€‚
+    echo ãƒ­ã‚°ãƒ•ã‚¡ã‚¤ãƒ«ï¼ˆ%LOG%ï¼‰ã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€‚
 ) ELSE (
     echo.
-    echo ‚·‚×‚Ä‚ÌƒpƒbƒP[ƒW‚ª³í‚ÉƒCƒ“ƒXƒg[ƒ‹‚³‚ê‚Ü‚µ‚½B
+    echo ã™ã¹ã¦ã®ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ãŒæ­£å¸¸ã«ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã•ã‚Œã¾ã—ãŸã€‚
 )
 
-REM ˆêŽžƒtƒ@ƒCƒ‹‚Ìíœ
+REM ä¸€æ™‚ãƒ•ã‚¡ã‚¤ãƒ«ã®å‰Šé™¤
 if exist "%TEMP_FILE%" del "%TEMP_FILE%"
 
 echo.
 echo ===================================================
-echo ƒCƒ“ƒXƒg[ƒ‹ˆ—‚ªŠ®—¹‚µ‚Ü‚µ‚½B
-echo ƒƒOƒtƒ@ƒCƒ‹: %LOG%
+echo ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«å‡¦ç†ãŒå®Œäº†ã—ã¾ã—ãŸã€‚
+echo ãƒ­ã‚°ãƒ•ã‚¡ã‚¤ãƒ«: %LOG%
 echo ===================================================
 echo.
-echo ‰½‚©ƒL[‚ð‰Ÿ‚·‚ÆI—¹‚µ‚Ü‚·...
+echo ä½•ã‹ã‚­ãƒ¼ã‚’æŠ¼ã™ã¨çµ‚äº†ã—ã¾ã™...
 pause > nul
