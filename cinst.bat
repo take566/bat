@@ -20,7 +20,7 @@ SET ss=%time2:~6,2%
 SET filename=%yyyy%-%mm%%dd%-%hh%%mn%%ss%
 
 REM ログディレクトリの設定
-SET LOG_DIR=C:\work\log
+SET LOG_DIR=log
 SET LOG=%LOG_DIR%\cinst_%filename%.txt
 SET TEMP_FILE=%TEMP%\packages_to_install.txt
 

@@ -14,7 +14,7 @@ SET ss=%time2:~6,2%
 
 SET filename=%yyyy%-%mm%%dd%-%hh%%mn%%ss%
 
-SET LOG_DIR=C:\work\log
+SET LOG_DIR=log
 SET LOG=%LOG_DIR%\clist_%filename%.txt
 
 REM Check if the log directory exists, create it if it doesn't

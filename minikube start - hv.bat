@@ -12,9 +12,9 @@ SET mn=%time2:~3,2%
 SET ss=%time2:~6,2%
 
 SET filename=%yyyy%-%mm%%dd%-%hh%%mn%%ss%
-SET LOG=C:\work\log\minikube_hv_%filename%.txt
+SET LOG=log\minikube_hv_%filename%.txt
 
-cd /d C:\work\kubernetes
+cd /d kubernetes
 minikube stop >> %LOG%
 minikube delete >> %LOG%
 minikube --vm-driver=hyperv --driver=docker --extra-config=apiserver.Authorization.Mode=RBAC start  --cpus 4 --memory 8192 >> %LOG%

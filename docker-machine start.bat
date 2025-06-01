@@ -14,7 +14,7 @@ set mn=%time2:~3,2%
 set ss=%time2:~6,2%
  
 set filename=%yyyy%-%mm%%dd%-%hh%%mn%%ss%
-SET LOG=C:\work\log\docker_%filename%.txt
+SET LOG=log\docker_%filename%.txt
 
 
 docker-machine rm default -y >> %LOG%

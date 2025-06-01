@@ -14,7 +14,7 @@ SET hh=%time2:~0,2%
 SET mn=%time2:~3,2%
 SET ss=%time2:~6,2%
 
-SET LOG_DIR=C:\work\log
+SET LOG_DIR=log
 REM ログディレクトリの存在確認、なければ作成
 IF NOT EXIST "%LOG_DIR%" (
     MKDIR "%LOG_DIR%"

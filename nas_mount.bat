@@ -13,7 +13,7 @@ SET hh=%time2:~0,2%
 SET mn=%time2:~3,2%
 SET ss=%time2:~6,2%
 
-SET LOG_DIR=C:\work\log
+SET LOG_DIR=log
 REM Check if the log directory exists, create it if it doesn't
 IF NOT EXIST "%LOG_DIR%" (
     MKDIR "%LOG_DIR%"
@@ -29,7 +29,7 @@ echo Log file: %LOG% >> "%LOG%"
 echo. >> "%LOG%"
 
 REM Initialize status file
-SET STATUS_FILE=C:\work\log\nas_mount_status.txt
+SET STATUS_FILE=log\nas_mount_status.txt
 echo NAS Mount Status - %date% %time% > "%STATUS_FILE%"
 echo ============================== >> "%STATUS_FILE%"
 

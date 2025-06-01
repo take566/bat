@@ -4,7 +4,7 @@ echo NASマウントタスクをタスクスケジューラーに登録します
 echo 管理者権限が必要です。
 
 REM タスクをインポート
-schtasks /create /xml "C:\work\bat\NasMountTask.xml" /tn "NAS Mount Task"
+schtasks /create /xml "NasMountTask.xml" /tn "NAS Mount Task"
 
 if %errorlevel% equ 0 (
     echo タスクが正常に登録されました。

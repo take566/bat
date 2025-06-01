@@ -12,7 +12,7 @@ SET mn=%time2:~3,2%
 SET ss=%time2:~6,2%
 
 SET filename=%yyyy%-%mm%%dd%-%hh%%mn%%ss%
-SET LOG=C:\work\log\teams_%filename%.txt
+SET LOG=log\teams_%filename%.txt
 REM Check if the log directory exists, create it if it doesn't
 IF NOT EXIST "%LOG_DIR%" (
     MKDIR "%LOG_DIR%"

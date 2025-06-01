@@ -9,4 +9,4 @@ set LOG_FILE=Z:\bk\log\backup_%BACKUP_DATE%.log
 if not exist "Z:\bk\logs" mkdir "Z:\bk\logs"
 if not exist "%BACKUP_DIR%" mkdir "%BACKUP_DIR%"
 
-robocopy "c:\work" "%BACKUP_DIR%" /S /COPY:DAT /LOG:"%LOG_FILE%"
+robocopy "." "%BACKUP_DIR%" /S /COPY:DAT /LOG:"%LOG_FILE%"

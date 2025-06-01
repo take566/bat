@@ -2,7 +2,7 @@
 chcp 65001 > nul
 setlocal enabledelayedexpansion
 
-SET LOG_DIR=C:\work\log
+SET LOG_DIR=log
 IF NOT EXIST "%LOG_DIR%" (
     MKDIR "%LOG_DIR%"
     echo Created log directory: %LOG_DIR%
