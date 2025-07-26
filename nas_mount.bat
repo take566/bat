@@ -33,34 +33,67 @@ SET STATUS_FILE=log\nas_mount_status.txt
 echo NAS Mount Status - %date% %time% > "%STATUS_FILE%"
 echo ============================== >> "%STATUS_FILE%"
 
-echo マウント処理を開始します... >> "%LOG%" 2>&1
-echo 既存の接続を切断しています... >> "%LOG%" 2>&1
-echo Checking log directory: %LOG_DIR% >> "%LOG%"
-IF NOT EXIST "%LOG_DIR%" (
-    MKDIR "%LOG_DIR%" >> "%LOG%" 2>&1
-    echo Created log directory: %LOG_DIR% >> "%LOG%"
-) ELSE (
-    echo Log directory already exists: %LOG_DIR% >> "%LOG%"
+echo マウント状態をチェックしています... >> "%LOG%" 2>&1
+
+REM マウント状態をチェック
+SET MOUNT_NEEDED=false
+
+echo Checking drive X: >> "%LOG%"
+net use X: >nul 2>&1
+if %errorlevel% neq 0 (
+    echo Drive X: is not mounted >> "%LOG%"
+    SET MOUNT_NEEDED=true
+) else (
+    echo Drive X: is already mounted >> "%LOG%"
 )
+
+echo Checking drive Y: >> "%LOG%"
+net use Y: >nul 2>&1
+if %errorlevel% neq 0 (
+    echo Drive Y: is not mounted >> "%LOG%"
+    SET MOUNT_NEEDED=true
+) else (
+    echo Drive Y: is already mounted >> "%LOG%"
+)
+
+echo Checking drive Z: >> "%LOG%"
+net use Z: >nul 2>&1
+if %errorlevel% neq 0 (
+    echo Drive Z: is not mounted >> "%LOG%"
+    SET MOUNT_NEEDED=true
+) else (
+    echo Drive Z: is already mounted >> "%LOG%"
+)
+
 echo. >> "%LOG%"
 
-REM 既存の接続を解除
-echo Disconnecting drive X: >> "%LOG%"
-net use X: /DELETE /y >> "%LOG%" 2>&1
-echo Disconnecting drive Y: >> "%LOG%"
-net use Y: /DELETE /y >> "%LOG%" 2>&1
-echo Disconnecting drive Z: >> "%LOG%"
-net use Z: /DELETE /y >> "%LOG%" 2>&1
-echo. >> "%LOG%"
+REM マウントが必要な場合のみ実行
+if "%MOUNT_NEEDED%"=="true" (
+    echo マウントが必要です。マウント処理を開始します... >> "%LOG%" 2>&1
+    echo 既存の接続を切断しています... >> "%LOG%" 2>&1
+    
+    REM 既存の接続を解除
+    echo Disconnecting drive X: >> "%LOG%"
+    net use X: /DELETE /y >> "%LOG%" 2>&1
+    echo Disconnecting drive Y: >> "%LOG%"
+    net use Y: /DELETE /y >> "%LOG%" 2>&1
+    echo Disconnecting drive Z: >> "%LOG%"
+    net use Z: /DELETE /y >> "%LOG%" 2>&1
+    echo. >> "%LOG%"
 
-REM 新しい接続を確立
-echo Connecting drive X: \\AS4002T-A6F7\Music >> "%LOG%"
-net use X: \\AS4002T-A6F7\Music /user:admin asdf1242 >> "%LOG%" 2>&1
-echo Connecting drive Y: \\AS4002T-A6F7\Media >> "%LOG%"
-net use Y: \\AS4002T-A6F7\Media >> "%LOG%" 2>&1
-echo Connecting drive Z: \\AS4002T-A6F7\Home >> "%LOG%"
-net use Z: \\AS4002T-A6F7\Home >> "%LOG%" 2>&1
-echo. >> "%LOG%"
+    REM 新しい接続を確立
+    echo Connecting drive X: \\AS4002T-A6F7\Music >> "%LOG%"
+    net use X: \\AS4002T-A6F7\Music /user:admin asdf1242 >> "%LOG%" 2>&1
+    echo Connecting drive Y: \\AS4002T-A6F7\Media >> "%LOG%"
+    net use Y: \\AS4002T-A6F7\Media >> "%LOG%" 2>&1
+    echo Connecting drive Z: \\AS4002T-A6F7\Home >> "%LOG%"
+    net use Z: \\AS4002T-A6F7\Home >> "%LOG%" 2>&1
+    echo. >> "%LOG%"
+    
+    echo マウント処理が完了しました。 >> "%LOG%"
+) else (
+    echo すべてのドライブが既にマウントされています。処理をスキップします。 >> "%LOG%"
+)
 
 echo ==================== Script End ==================== >> "%LOG%"
 
