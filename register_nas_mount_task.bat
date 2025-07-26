@@ -50,10 +50,8 @@ if %errorlevel% equ 0 (
     echo Task registered successfully!
     echo ========================================
     echo Task name: NAS Mount Task
-    echo Schedule: 
-    echo  - System logon
-    echo  - Daily at 9:00 AM
-    echo  - Every hour (only if not mounted)
+    echo Schedule: Every hour starting at 9:00 AM
+    echo Description: Checks NAS mount status and mounts if needed
     echo.
     echo Checking task details...
     schtasks /query /tn "NAS Mount Task" /fo list
