@@ -1,0 +1,20 @@
+# Log files
+log/
+log/*.txt
+log/*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Windows temporary files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Backup files
+*.bak
+*.backup
+
+# System files
+.DS_Store 
