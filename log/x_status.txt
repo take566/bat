@@ -1,5 +1,0 @@
-Local name        X:
-Remote name       \\AS4002T-A6F7\Music
-Resource type     Disk
-The command completed successfully.
-

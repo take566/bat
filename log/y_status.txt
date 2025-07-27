@@ -1,8 +1,0 @@
-Local name        Y:
-Remote name       \\AS4002T-A6F7\Media
-Resource type     Disk
-Status            Disconnected
-# Opens           0
-# Connections     1
-The command completed successfully.
-
