@@ -1,0 +1,15 @@
+==================== Script Start ==================== 
+Date: 2025/07/27 
+Time: 10:38:00.40 
+Log file: log\nas_mount_2025-0727-103800.txt 
+ 
+マウント状態をチェックしています... 
+Checking drive X: 
+Drive X: is already mounted 
+Checking drive Y: 
+Drive Y: is already mounted 
+Checking drive Z: 
+Drive Z: is already mounted 
+ 
+すべてのドライブが既にマウントされています。処理をスキップします。 
+==================== Script End ==================== 

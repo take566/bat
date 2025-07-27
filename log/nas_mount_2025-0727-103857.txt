@@ -1,0 +1,37 @@
+==================== Script Start ==================== 
+Date: 2025/07/27 
+Time: 10:38:57.80 
+Log file: log\nas_mount_2025-0727-103857.txt 
+ 
+マウント状態をチェックしています... 
+Checking drive X: 
+Drive X: is already mounted 
+Checking drive Y: 
+Drive Y: is disconnected - needs remounting 
+Checking drive Z: 
+Drive Z: is disconnected - needs remounting 
+ 
+マウントが必要です。マウント処理を開始します... 
+既存の接続を切断しています... 
+Disconnecting drive X: 
+X: was deleted successfully.
+
+Disconnecting drive Y: 
+Y: was deleted successfully.
+
+Disconnecting drive Z: 
+Z: was deleted successfully.
+
+ 
+Connecting drive X: \\AS4002T-A6F7\Music 
+The command completed successfully.
+
+Connecting drive Y: \\AS4002T-A6F7\Media 
+The command completed successfully.
+
+Connecting drive Z: \\AS4002T-A6F7\Home 
+The command completed successfully.
+
+ 
+マウント処理が完了しました。 
+==================== Script End ==================== 

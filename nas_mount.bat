@@ -39,27 +39,30 @@ REM マウント状態をチェック
 SET MOUNT_NEEDED=false
 
 echo Checking drive X: >> "%LOG%"
-net use X: >nul 2>&1
-if %errorlevel% neq 0 (
-    echo Drive X: is not mounted >> "%LOG%"
+net use X: > "%LOG_DIR%\x_status.txt" 2>&1
+findstr /i "Disconnected" "%LOG_DIR%\x_status.txt" >nul 2>&1
+if %errorlevel% equ 0 (
+    echo Drive X: is disconnected - needs remounting >> "%LOG%"
     SET MOUNT_NEEDED=true
 ) else (
     echo Drive X: is already mounted >> "%LOG%"
 )
 
 echo Checking drive Y: >> "%LOG%"
-net use Y: >nul 2>&1
-if %errorlevel% neq 0 (
-    echo Drive Y: is not mounted >> "%LOG%"
+net use Y: > "%LOG_DIR%\y_status.txt" 2>&1
+findstr /i "Disconnected" "%LOG_DIR%\y_status.txt" >nul 2>&1
+if %errorlevel% equ 0 (
+    echo Drive Y: is disconnected - needs remounting >> "%LOG%"
     SET MOUNT_NEEDED=true
 ) else (
     echo Drive Y: is already mounted >> "%LOG%"
 )
 
 echo Checking drive Z: >> "%LOG%"
-net use Z: >nul 2>&1
-if %errorlevel% neq 0 (
-    echo Drive Z: is not mounted >> "%LOG%"
+net use Z: > "%LOG_DIR%\z_status.txt" 2>&1
+findstr /i "Disconnected" "%LOG_DIR%\z_status.txt" >nul 2>&1
+if %errorlevel% equ 0 (
+    echo Drive Z: is disconnected - needs remounting >> "%LOG%"
     SET MOUNT_NEEDED=true
 ) else (
     echo Drive Z: is already mounted >> "%LOG%"
