@@ -1,0 +1,37 @@
+Chocolatey v2.5.0
+Installing the following packages:
+$(type;C:\Users\tmf58\AppData\Local\Temp\packages_filtered.txt)
+By installing, you accept licenses for the packages.
+$(type not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+C:\Users\tmf58\AppData\Local\Temp\packages_filtered.txt) not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+
+Chocolatey installed 0/2 packages. 2 packages failed.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Failures
+ - $(type - $(type not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+ - C:\Users\tmf58\AppData\Local\Temp\packages_filtered.txt) - C:\Users\tmf58\AppData\Local\Temp\packages_filtered.txt) not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
