@@ -40,7 +40,7 @@ SET MOUNT_NEEDED=false
 
 echo Checking drive X: >> "%LOG%"
 net use X: > "%LOG_DIR%\x_status.txt" 2>&1
-findstr /i "Disconnected" "%LOG_DIR%\x_status.txt" >nul 2>&1
+findstr /i /c:"Disconnected" /c:"could not be found" "%LOG_DIR%\x_status.txt" >nul 2>&1
 if %errorlevel% equ 0 (
     echo Drive X: is disconnected - needs remounting >> "%LOG%"
     SET MOUNT_NEEDED=true
@@ -50,7 +50,7 @@ if %errorlevel% equ 0 (
 
 echo Checking drive Y: >> "%LOG%"
 net use Y: > "%LOG_DIR%\y_status.txt" 2>&1
-findstr /i "Disconnected" "%LOG_DIR%\y_status.txt" >nul 2>&1
+findstr /i /c:"Disconnected" /c:"could not be found" "%LOG_DIR%\y_status.txt" >nul 2>&1
 if %errorlevel% equ 0 (
     echo Drive Y: is disconnected - needs remounting >> "%LOG%"
     SET MOUNT_NEEDED=true
@@ -60,12 +60,22 @@ if %errorlevel% equ 0 (
 
 echo Checking drive Z: >> "%LOG%"
 net use Z: > "%LOG_DIR%\z_status.txt" 2>&1
-findstr /i "Disconnected" "%LOG_DIR%\z_status.txt" >nul 2>&1
+findstr /i /c:"Disconnected" /c:"could not be found" "%LOG_DIR%\z_status.txt" >nul 2>&1
 if %errorlevel% equ 0 (
     echo Drive Z: is disconnected - needs remounting >> "%LOG%"
     SET MOUNT_NEEDED=true
 ) else (
     echo Drive Z: is already mounted >> "%LOG%"
+)
+
+echo Checking drive W: >> "%LOG%"
+net use W: > "%LOG_DIR%\w_status.txt" 2>&1
+findstr /i /c:"Disconnected" /c:"could not be found" "%LOG_DIR%\w_status.txt" >nul 2>&1
+if %errorlevel% equ 0 (
+    echo Drive W: is disconnected - needs remounting >> "%LOG%"
+    SET MOUNT_NEEDED=true
+) else (
+    echo Drive W: is already mounted >> "%LOG%"
 )
 
 echo. >> "%LOG%"
@@ -82,6 +92,8 @@ if "%MOUNT_NEEDED%"=="true" (
     net use Y: /DELETE /y >> "%LOG%" 2>&1
     echo Disconnecting drive Z: >> "%LOG%"
     net use Z: /DELETE /y >> "%LOG%" 2>&1
+    echo Disconnecting drive W: >> "%LOG%"
+    net use W: /DELETE /y >> "%LOG%" 2>&1
     echo. >> "%LOG%"
 
     REM 新しい接続を確立
@@ -91,6 +103,8 @@ if "%MOUNT_NEEDED%"=="true" (
     net use Y: \\AS4002T-A6F7\Media >> "%LOG%" 2>&1
     echo Connecting drive Z: \\AS4002T-A6F7\Home >> "%LOG%"
     net use Z: \\AS4002T-A6F7\Home >> "%LOG%" 2>&1
+    echo Connecting drive W: \\AS4002T-A6F7\Docker >> "%LOG%"
+    net use W: \\AS4002T-A6F7\Docker >> "%LOG%" 2>&1
     echo. >> "%LOG%"
     
     echo マウント処理が完了しました。 >> "%LOG%"
