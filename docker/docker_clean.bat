@@ -88,5 +88,10 @@ echo [%date% %time%] Docker containers removal completed >> "!LOG!"
 echo.
 echo [%date% %time%] Docker cleanup completed successfully >> "!LOG!"
 echo Docker クリーンアップが完了しました。
-echo ログファイルは !LOG! に保存されています。
+
+REM ログファイルパスを安全に表示
+set "LOG_MSG=ログファイルは !LOG! に保存されています。"
+echo !LOG_MSG!
+
+REM ここで一時停止
 pause
