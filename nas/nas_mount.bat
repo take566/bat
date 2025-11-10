@@ -33,7 +33,7 @@ SET STATUS_FILE=log\nas_mount_status.txt
 echo NAS Mount Status - %date% %time% > "%STATUS_FILE%"
 echo ============================== >> "%STATUS_FILE%"
 
-echo マウント状態をチェックしています... >> "%LOG%" 2>&1
+echo Checking mount status... >> "%LOG%" 2>&1
 
 REM マウント状態をチェック
 SET MOUNT_NEEDED=false
@@ -80,12 +80,12 @@ if %errorlevel% equ 0 (
 
 echo. >> "%LOG%"
 
-REM マウントが必要な場合のみ実行
+REM Execute mount only if needed
 if "%MOUNT_NEEDED%"=="true" (
-    echo マウントが必要です。マウント処理を開始します... >> "%LOG%" 2>&1
-    echo 既存の接続を切断しています... >> "%LOG%" 2>&1
-    
-    REM 既存の接続を解除
+    echo Mount needed. Starting mount process... >> "%LOG%" 2>&1
+    echo Disconnecting existing connections... >> "%LOG%" 2>&1
+
+    REM Disconnect existing connections
     echo Disconnecting drive X: >> "%LOG%"
     net use X: /DELETE /y >> "%LOG%" 2>&1
     echo Disconnecting drive Y: >> "%LOG%"
@@ -96,7 +96,7 @@ if "%MOUNT_NEEDED%"=="true" (
     net use W: /DELETE /y >> "%LOG%" 2>&1
     echo. >> "%LOG%"
 
-    REM 新しい接続を確立
+    REM Establish new connections
     echo Connecting drive X: \\AS4002T-A6F7\Music >> "%LOG%"
     net use X: \\AS4002T-A6F7\Music /user:admin asdf1242 >> "%LOG%" 2>&1
     echo Connecting drive Y: \\AS4002T-A6F7\Media >> "%LOG%"
@@ -106,10 +106,10 @@ if "%MOUNT_NEEDED%"=="true" (
     echo Connecting drive W: \\AS4002T-A6F7\Docker >> "%LOG%"
     net use W: \\AS4002T-A6F7\Docker >> "%LOG%" 2>&1
     echo. >> "%LOG%"
-    
-    echo マウント処理が完了しました。 >> "%LOG%"
+
+    echo Mount process completed. >> "%LOG%"
 ) else (
-    echo すべてのドライブが既にマウントされています。処理をスキップします。 >> "%LOG%"
+    echo All drives already mounted. Skipping process. >> "%LOG%"
 )
 
 echo ==================== Script End ==================== >> "%LOG%"
