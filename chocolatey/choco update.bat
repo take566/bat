@@ -64,7 +64,7 @@ IF %UPGRADE_ERROR% NEQ 0 (
 REM ローカルパッケージリスト取得
 echo. >> %LOG%
 echo Getting local package list... >> %LOG%
-choco list -localonly >> %LOG% 2>&1
+choco list --local-only >> %LOG% 2>&1
 SET LIST_ERROR=%ERRORLEVEL%
 IF %LIST_ERROR% NEQ 0 (
     echo ERROR: choco list failed with error code %LIST_ERROR% >> %LOG%
