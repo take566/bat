@@ -43,6 +43,9 @@ echo Time: %time% >> %LOG%
 echo Script Directory: %SCRIPT_DIR% >> %LOG%
 echo ======================================== >> %LOG%
 
+REM タスクスケジューラ実行時はPATHに含まれないことがあるため、Chocolateyのパスを明示的に追加
+set "PATH=%ProgramData%\chocolatey\bin;%PATH%"
+
 REM Chocolateyがインストールされているか確認
 WHERE choco >nul 2>&1
 IF %ERRORLEVEL% NEQ 0 (

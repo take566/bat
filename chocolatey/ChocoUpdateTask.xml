@@ -45,7 +45,7 @@
   <Actions Context="Author">
     <Exec>
       <Command>cmd.exe</Command>
-      <Arguments>/c "cd /d D:\work\bat\chocolatey &amp;&amp; &quot;choco update.bat&quot;"</Arguments>
+      <Arguments>/c &quot;&quot;D:\work\bat\chocolatey\choco update.bat&quot;&quot;</Arguments>
       <WorkingDirectory>D:\work\bat\chocolatey</WorkingDirectory>
     </Exec>
   </Actions>
