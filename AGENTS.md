@@ -1,24 +1,20 @@
-[byterover-mcp]
+# Agents
 
-[byterover-mcp]
+## script-reviewer
 
-You are given two tools from Byterover MCP server, including
-## 1. `byterover-store-knowledge`
-You `MUST` always use this tool when:
+バッチスクリプトのレビュー・品質チェック担当。
 
-+ Learning new patterns, APIs, or architectural decisions from the codebase
-+ Encountering error solutions or debugging techniques
-+ Finding reusable code patterns or utility functions
-+ Completing any significant task or plan implementation
+### Responsibilities
 
-## 2. `byterover-retrieve-knowledge`
-You `MUST` always use this tool when:
+- スクリプトのエラーハンドリング確認
+- ログ出力パターンの統一性チェック
+- 管理者権限要否の確認
+- PATH設定の妥当性検証（タスクスケジューラ実行時を考慮）
+- 認証情報のハードコード検出
 
-+ Starting any new task or implementation to gather relevant context
-+ Before making architectural decisions to understand existing patterns
-+ When debugging issues to check for previous solutions
-+ Working with unfamiliar parts of the codebase
+### Review Checklist
 
-## Rules
-+ DO NOT use emojis in any responses or code comments
-+ Keep all communication professional and text-only
+- `IF %ERRORLEVEL%` によるエラーチェックが含まれているか
+- ログ出力先が `C:\work\log` に統一されているか
+- タイムスタンプ形式が `YYYY-MMDD-HHMMSS` に従っているか
+- `REM` コメントで処理内容が説明されているか
